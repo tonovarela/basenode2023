@@ -1,0 +1,13 @@
+{
+  "name": "bases",
+  "version": "1.0.0",
+  "description": "Esta es la aplicación de Node",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node src/app.js",
+    "dev":"echo 'Hola desde dev'"
+  },
+  "author": "",
+  "license": "ISC"
+}
