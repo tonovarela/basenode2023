@@ -1,9 +1,14 @@
 const winston = require('winston');
 
+const  {combine,timestamp,json} = winston.format;
+
 const logger = winston.createLogger({
     level: 'info',
-    format: winston.format.json(),
-    //defaultMeta: { service: 'user-service' },
+    format: combine(
+      timestamp(),
+      json()
+    ),
+    //winston.format.json(),    
     transports: [  
       new winston.transports.File({ filename: 'error.log', level: 'error' }),
       new winston.transports.File({ filename: 'combined.log' }),
@@ -18,6 +23,10 @@ const logger = winston.createLogger({
     return  {
         log: (message)=>{
             logger.info('info ',{message,service});
+        },
+        error: (message)=>{
+          logger.error('error ',{message,
+                                service});
         }
     }
   }
